@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { personalInfo } from '@/data/personal';
+import profilePhoto from '@/public/profile.jpg';
 
 export function HeroPortrait({ className = '' }: { className?: string }) {
   return (
@@ -10,14 +11,13 @@ export function HeroPortrait({ className = '' }: { className?: string }) {
     >
       <Image
         id="hero-portrait-image"
-        src="/Image.png"
+        src={profilePhoto}
         alt={personalInfo.name}
         fill
         priority
-        unoptimized
         className="object-cover object-[center_20%]"
         sizes="(max-width: 640px) 240px, (max-width: 1024px) 290px, 320px"
-        referrerPolicy="no-referrer"
+        placeholder="blur"
       />
     </div>
   );
