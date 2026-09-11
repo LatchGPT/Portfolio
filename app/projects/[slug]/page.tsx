@@ -2,8 +2,9 @@ import { projectsData } from '@/data/projects';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, ExternalLink, Github, CheckCircle2, Layers, Cpu, FileCode2 } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Github, CheckCircle2, Layers, Cpu, FileCode2, Globe } from 'lucide-react';
 import type { Metadata } from 'next';
+import { WebPreviewFrame } from '@/components/web-preview-frame';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -74,7 +75,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-950 text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-950 text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-xs"
             >
               <Github className="w-4 h-4" />
               Source Code (GitHub)
@@ -86,14 +87,30 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 text-sm font-medium hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-sky-300 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/50 text-sky-900 dark:text-sky-200 text-sm font-medium hover:bg-sky-100 dark:hover:bg-sky-900/80 transition-colors shadow-xs"
             >
               <ExternalLink className="w-4 h-4" />
-              Live Deployment
+              Visit Project Website
             </a>
           )}
         </div>
       </header>
+
+      {/* Embedded Live Web Preview & Interactive Frame */}
+      <section className="pt-8 pb-4">
+        <div className="flex items-center justify-between gap-4 mb-3">
+          <div>
+            <h2 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+              <Globe className="w-4 h-4 text-sky-600 dark:text-sky-400" />
+              Interactive Web Application Preview
+            </h2>
+            <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
+              Live iframe preview directly rendering {project.liveUrl || 'production deployment'} with instant controls
+            </p>
+          </div>
+        </div>
+        <WebPreviewFrame project={project} heightClass="h-[480px] sm:h-[560px]" defaultMode="live" />
+      </section>
 
       {/* Overview & Tech stack */}
       <div className="py-10 space-y-12">
@@ -184,6 +201,43 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 </p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Bottom Actions Bar */}
+        <section className="pt-8 border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-4">
+          <Link
+            href="/#projects"
+            className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to all projects
+          </Link>
+
+          <div className="flex flex-wrap items-center gap-3">
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 text-sm font-medium hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+              >
+                <Github className="w-4 h-4" />
+                GitHub Repository
+              </a>
+            )}
+
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-700 text-white text-sm font-medium transition-colors"
+              >
+                <ExternalLink className="w-4 h-4" />
+                Launch Project Website
+              </a>
+            )}
           </div>
         </section>
       </div>

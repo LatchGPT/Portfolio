@@ -6,7 +6,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-950 py-10">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-600 dark:text-neutral-400">
           <div>
             <p className="font-mono">
@@ -43,6 +43,10 @@ export function Footer() {
             ) : (
               <span className="text-neutral-400 dark:text-neutral-600">LinkedIn</span>
             )}
+
+            <Link href="/resume" className="hover:underline hover:text-neutral-900 dark:hover:text-white">
+              Resume
+            </Link>
 
             <Link href="/#about" className="hover:underline hover:text-neutral-900 dark:hover:text-white">
               Back to top

@@ -2,27 +2,35 @@ import { ExperienceItem } from '@/types';
 
 export const experienceData: ExperienceItem[] = [
   {
-    company: 'Microgenesis Business Systems',
-    role: 'Junior Full-Stack Developer',
-    period: 'Sept 2026 – Present',
+    company: 'Denso Ten Solutions Philippines Corporation',
+    role: 'On-The-Job Training - Quality Assurance Intern',
+    period: 'February 2026 – April 2026',
     responsibilities: [
-      'Assisting in the design, development, and maintenance of full-stack web applications and user-facing features.',
-      'Developing responsive frontend UI components using modern JavaScript/TypeScript and component frameworks.',
-      'Building and integrating RESTful API endpoints and handling database queries for seamless client-server interaction.',
-      'Participating in team code reviews, sprint planning, and debugging tasks to ensure high code quality and reliability.',
-      'Collaborating with senior engineers to implement best practices in code organization, testing, and deployment.'
+      'Performed functional and regression testing on automotive infotainment systems, executing test cases and verifying software using VerUp and PCTS.',
+      'Identified and logged defects, analyzing system behavior to support QA documentation and reporting accuracy.',
+      'Collaborated with cross-functional QA teams to complete testing assignments ahead of schedule.'
     ]
   },
   {
-    company: 'Software Quality Assurance & Development',
-    role: 'Quality Assurance Tester & Student Software Engineer',
-    period: '2023 – Present',
+    company: 'Ant Savvy Creatives',
+    role: 'Software and Hardware Technician (Freelance)',
+    period: 'May 2025 – July 2025',
     responsibilities: [
-      'Executed systematic functional, exploratory, and regression testing across core web application modules.',
-      'Authored detailed test cases, bug reproduction matrices, and verified edge-case validation for user input fields.',
-      'Conducted RESTful API endpoint testing, payload validation, and HTTP status verification using Postman.',
-      'Collaborated on cross-browser and mobile responsive UI evaluations ensuring accessibility and layout fidelity.',
-      'Documented and tracked defect lifecycles, ensuring timely mitigation of transaction-breaking bugs prior to demonstration.'
+      'Provided on-site technical support during a Coca-Cola promotional event, ensuring 100% uptime across 4 event systems.',
+      'Performed hardware setup, display installation, and connectivity troubleshooting to keep systems running before and during the event.',
+      'Collaborated with creative and logistics teams to coordinate seamless event operations.',
+      'Configured and maintained local systems used for event activities.'
+    ]
+  },
+  {
+    company: 'Taytay Public Information Office — Taytay, Rizal',
+    role: 'Student Assistant (SPES Program)',
+    period: 'June 2025 – July 2025',
+    responsibilities: [
+      'Organized and maintained digital records using Microsoft Excel and Word.',
+      'Provided basic technical support, including troubleshooting printers and internet connectivity issues.',
+      'Supported staff with office and IT-related tasks for public announcements and documentation.',
+      'Coordinated with the information team to ensure smooth daily office operations.'
     ]
   }
 ];

@@ -3,7 +3,7 @@ import { SectionHeading } from './ui/section-heading';
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-16 border-b border-neutral-200 dark:border-neutral-800">
+    <section id="skills" className="py-16 scroll-mt-20 border-b border-neutral-200 dark:border-neutral-800">
       <SectionHeading
         number="03."
         title="Technical Skills"

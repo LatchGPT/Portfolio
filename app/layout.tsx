@@ -3,6 +3,8 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { AskLatchChat } from '@/components/ask-latch-chat';
+import { DeveloperCli } from '@/components/developer-cli';
 import { personalInfo } from '@/data/personal';
 
 export const metadata: Metadata = {
@@ -29,10 +31,12 @@ export default function RootLayout({
       <body className="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 flex flex-col antialiased selection:bg-sky-500 selection:text-white">
         <ThemeProvider>
           <Navbar />
-          <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+          <main className="flex-1 max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
             {children}
           </main>
           <Footer />
+          <AskLatchChat />
+          <DeveloperCli />
         </ThemeProvider>
       </body>
     </html>

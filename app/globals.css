@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
   :root {
     --background: #fafaf9;
     --foreground: #1c1917;
@@ -29,10 +34,80 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
+  /* Custom scrollbars matched to Light / Dark themes */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: #141414;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 9999px;
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #404040;
+  }
+
+  /* Firefox scrollbar styles */
+  html {
+    scrollbar-color: #cbd5e1 #f1f5f9;
+    scrollbar-width: thin;
+  }
+  html.dark {
+    scrollbar-color: #2a2a2a #141414;
+  }
+
   /* Accessible focus indicators */
   :focus-visible {
     outline: 2px solid #0284c7;
     outline-offset: 2px;
+  }
+}
+
+/* View Transitions circular reveal animation (inspired by bryllim.com) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Fallback coordinated color crossfade during a theme switch (only active while .theme-anim is set) */
+html.theme-anim,
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+  transition: background-color 0.45s ease,
+              border-color 0.45s ease,
+              color 0.45s ease,
+              fill 0.45s ease,
+              stroke 0.45s ease,
+              box-shadow 0.45s ease,
+              outline-color 0.45s ease !important;
+}
+
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
   }
 }
 
@@ -44,5 +119,12 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  html.theme-anim,
+  html.theme-anim *,
+  html.theme-anim *::before,
+  html.theme-anim *::after {
+    transition: none !important;
   }
 }

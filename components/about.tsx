@@ -4,7 +4,7 @@ import { CheckCircle2 } from 'lucide-react';
 
 export function About() {
   return (
-    <section id="about" className="py-16 border-b border-neutral-200 dark:border-neutral-800">
+    <section id="about" className="py-16 scroll-mt-20 border-b border-neutral-200 dark:border-neutral-800">
       <SectionHeading
         number="01."
         title="About Me"

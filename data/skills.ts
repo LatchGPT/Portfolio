@@ -2,16 +2,19 @@ import { SkillCategory } from '@/types';
 
 export const skillsData: SkillCategory[] = [
   {
-    title: 'Frontend Development',
+    title: 'Programming & Web Development',
     skills: [
-      'TypeScript',
+      'C++',
+      'Java',
+      'Python',
+      'PHP',
+      'HTML5',
+      'CSS3',
       'JavaScript (ES6+)',
+      'TypeScript',
       'React',
       'Next.js',
-      'Tailwind CSS',
-      'HTML5 & Semantic Markup',
-      'CSS3 & Responsive Layouts',
-      'Print Stylesheets'
+      'Tailwind CSS'
     ]
   },
   {
@@ -19,23 +22,22 @@ export const skillsData: SkillCategory[] = [
     skills: [
       'Node.js',
       'Express.js',
-      'RESTful API Design',
+      'RESTful API Architecture',
       'Google Cloud Firestore',
       'MongoDB & Mongoose',
       'Firebase Authentication',
-      'JWT & Session Auth'
+      'JWT Security'
     ]
   },
   {
-    title: 'QA, Tools & Systems',
+    title: 'QA, IT Support & Platforms',
     skills: [
-      'Git & GitHub',
+      'VerUp & PCTS (Infotainment QA)',
       'Functional & Regression Testing',
-      'Test Case Execution',
-      'Defect Tracking & Documentation',
-      'Cloudinary API',
-      'Postman / API Testing',
-      'Data Import/Export (CSV/Excel)'
+      'Git & GitHub Version Control',
+      'Hardware Troubleshooting',
+      'Network Connectivity & Maintenance',
+      'Canva & Adobe Photoshop'
     ]
   }
 ];

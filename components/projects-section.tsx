@@ -4,7 +4,7 @@ import { ProjectCard } from './project-card';
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-16 border-b border-neutral-200 dark:border-neutral-800">
+    <section id="projects" className="py-16 scroll-mt-20 border-b border-neutral-200 dark:border-neutral-800">
       <SectionHeading
         number="02."
         title="Featured Projects"

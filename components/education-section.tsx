@@ -5,7 +5,7 @@ import { GraduationCap, Award, BookOpen, Calendar, MapPin } from 'lucide-react';
 
 export function EducationSection() {
   return (
-    <section id="education" className="py-16 border-b border-neutral-200 dark:border-neutral-800">
+    <section id="education" className="py-16 scroll-mt-20 border-b border-neutral-200 dark:border-neutral-800">
       <SectionHeading
         number="05."
         title="Education & Academic Background"

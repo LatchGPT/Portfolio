@@ -38,14 +38,15 @@ export const projectsData: Project[] = [
       'Built a deterministic, weighted reward roulette algorithm with server-side validation to avoid reward manipulation.',
       'Managed optimized asset streaming using Cloudinary transformation parameters.'
     ],
-    githubUrl: 'https://github.com/doublecarry/KuyaPahipak'
+    githubUrl: 'https://github.com/DoubleCarry/KuyaPahipak',
+    liveUrl: 'https://kuya-pahipak.vercel.app'
   },
   {
     slug: 'dtr-ni-latch',
     name: 'DTR ni Latch',
     tagline: 'Daily Time Record and attendance tracking application for work and internship/OJT hour tracking.',
     description: 'A full-featured attendance management and audit platform engineered to track rendered hours, calculate deductions accurately, project completion milestones, and export standardized documentation for internship and professional compliance.',
-    status: 'API Deployed on Render / Frontend in repository',
+    status: 'Live REST API on Render / Client in Repository',
     category: 'Full-Stack Web Application (REST Architecture)',
     technologies: [
       'HTML5',
@@ -77,6 +78,8 @@ export const projectsData: Project[] = [
       'Constructed MongoDB aggregation pipelines for instant computation of total rendered hours, undertime, and overtime.',
       'Standardized print stylesheets for exact physical layout reproduction conforming to standard government/corporate DTR forms.'
     ],
-    notes: 'The backend service is hosted at https://dtrproj.onrender.com/api (REST API endpoint).'
+    notes: 'The application is deployed on Cloudflare Workers at https://dtrnilatch.latchcrisford213.workers.dev/.',
+    githubUrl: 'https://github.com/DoubleCarry/DTRproj',
+    liveUrl: 'https://dtrnilatch.latchcrisford213.workers.dev/'
   }
 ];
