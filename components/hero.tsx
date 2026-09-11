@@ -1,27 +1,33 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { personalInfo } from '@/data/personal';
 import { ArrowDown, Code2, MapPin, GraduationCap, Award } from 'lucide-react';
 import { HeroPortrait } from './hero-portrait';
 
 export function Hero() {
   return (
-    <section className="pt-16 pb-16 sm:pt-24 sm:pb-24 border-b border-neutral-200 dark:border-neutral-800">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+    <section id="hero" className="pt-12 pb-16 sm:pt-20 sm:pb-24 border-b border-neutral-200 dark:border-neutral-800">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 lg:gap-12">
         {/* Left Column: Introductions and Actions */}
-        <div className="lg:col-span-7 xl:col-span-8 space-y-6">
+        <div className="flex-1 space-y-6 w-full">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium border border-sky-300 dark:border-sky-800/80 bg-sky-50 dark:bg-sky-950/40 text-sky-800 dark:text-sky-300">
             <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
             BSIT Student & Aspiring Full-Stack Developer
           </div>
 
           <div>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-50 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-50 leading-tight">
               {personalInfo.name}
             </h1>
 
-            <p className="mt-3 text-lg sm:text-xl font-medium text-neutral-700 dark:text-neutral-300">
+            <p className="mt-2.5 text-lg sm:text-xl font-medium text-neutral-700 dark:text-neutral-300">
               {personalInfo.role}
             </p>
+          </div>
+
+          {/* Mobile portrait view (centered and full size, not a tiny thumbnail) */}
+          <div className="flex md:hidden justify-center pt-2 pb-2">
+            <HeroPortrait className="w-[220px] sm:w-[250px] h-[293px] sm:h-[333px]" />
           </div>
 
           <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl">
@@ -47,7 +53,7 @@ export function Hero() {
           </div>
 
           {/* Action CTA Buttons */}
-          <div className="pt-4 flex flex-wrap items-center gap-3">
+          <div className="pt-2 flex flex-wrap items-center gap-3">
             <Link
               href="#projects"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950 font-medium text-sm hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm"
@@ -66,8 +72,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Plain Portrait Component */}
-        <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end">
+        {/* Right Side: Portrait Image right next to the name and intro */}
+        <div className="hidden md:flex shrink-0 self-center md:self-start lg:self-center">
           <HeroPortrait />
         </div>
       </div>

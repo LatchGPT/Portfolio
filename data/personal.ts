@@ -15,5 +15,5 @@ export const personalInfo = {
     email: 'Latchcrisford213@gmail.com',
     resume: 'https://drive.google.com/file/d/1SViBJBGP0KkyK23t_JsZDEgbORBiX6Ot/view?usp=sharing'
   },
-  avatarUrl: '/profile.png'
+  avatarUrl: '/Image.png'
 };
