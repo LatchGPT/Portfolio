@@ -28,6 +28,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if ('scrollRestoration' in history) {
+                  history.scrollRestoration = 'manual';
+                }
+                if (window.location.hash) {
+                  history.replaceState(null, '', window.location.pathname + window.location.search);
+                }
+                window.scrollTo(0, 0);
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 flex flex-col antialiased selection:bg-sky-500 selection:text-white">
         <ThemeProvider>
           <Navbar />

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { personalInfo } from '@/data/personal';
@@ -56,6 +58,10 @@ export function Hero() {
           <div className="pt-2 flex flex-wrap items-center gap-3">
             <Link
               href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950 font-medium text-sm hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm"
             >
               <Code2 className="w-4 h-4" />
@@ -64,6 +70,10 @@ export function Hero() {
 
             <Link
               href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
             >
               <span>Learn more</span>

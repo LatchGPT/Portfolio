@@ -49,6 +49,7 @@ const SUGGESTION_POOLS: string[][] = [
 
 export function AskLatchChat() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showNotification, setShowNotification] = useState(true);
   const [suggestionPoolIndex, setSuggestionPoolIndex] = useState(0);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -196,24 +197,72 @@ export function AskLatchChat() {
 
   return (
     <>
-      {/* Floating Toggle Button */}
-      <div className="fixed bottom-5 right-5 z-40 no-print">
+      {/* Floating Chat Launcher */}
+      <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end no-print">
         {!isOpen && (
-          <button
-            type="button"
-            onClick={() => setIsOpen(true)}
-            className="group relative flex items-center gap-2.5 px-4 py-3 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-950 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all border border-neutral-700/50 dark:border-neutral-200"
-            aria-label="Talk to Latch"
-          >
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
-            </span>
-            <div className="flex items-center gap-1.5 font-medium text-xs sm:text-sm">
-              <Sparkles className="w-4 h-4 text-amber-400" />
-              <span>Talk to Latch</span>
-            </div>
-          </button>
+          <>
+            {/* Floating Notification Tag on top */}
+            {showNotification && (
+              <div className="relative mb-2.5 flex items-center justify-end animate-in fade-in slide-in-from-bottom-2 duration-200">
+                <div
+                  onClick={() => {
+                    setIsOpen(true);
+                    setShowNotification(false);
+                  }}
+                  className="group/notif relative flex items-center gap-1.5 pl-3 pr-1.5 py-1.5 rounded-full bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-100 shadow-xl border border-neutral-200 dark:border-neutral-700 text-xs font-medium cursor-pointer hover:border-sky-400 dark:hover:border-sky-500 hover:shadow-2xl transition-all select-none"
+                >
+                  <span className="relative flex h-2 w-2 shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span className="font-semibold text-xs text-neutral-800 dark:text-neutral-100 pl-0.5">
+                    Talk to Latch
+                  </span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowNotification(false);
+                    }}
+                    className="p-1 rounded-full text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors ml-1"
+                    title="Close notification"
+                    aria-label="Close notification"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+
+                  {/* Speech bubble pointer arrow */}
+                  <span className="absolute -bottom-1 right-6 w-2 h-2 bg-white dark:bg-neutral-900 border-r border-b border-neutral-200 dark:border-neutral-700 rotate-45 pointer-events-none"></span>
+                </div>
+              </div>
+            )}
+
+            {/* Circular Launcher Button with Vector Logo */}
+            <button
+              type="button"
+              onClick={() => {
+                setIsOpen(true);
+                setShowNotification(false);
+              }}
+              className="relative w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-950 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center border border-neutral-700/60 dark:border-neutral-200 group focus:outline-hidden focus:ring-2 focus:ring-sky-500"
+              aria-label="Talk to Latch"
+            >
+              {/* Subtle hover gradient background */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-sky-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+              {/* Vector Logo */}
+              <div className="relative flex items-center justify-center">
+                <Bot className="w-6 h-6 text-sky-400 dark:text-sky-600 transition-transform duration-200 group-hover:scale-110" />
+                <Sparkles className="w-3 h-3 text-amber-400 dark:text-amber-500 absolute -top-1 -right-1 animate-pulse" />
+              </div>
+
+              {/* Live status indicator dot */}
+              <span className="absolute bottom-1 right-1 flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border-2 border-neutral-900 dark:border-white"></span>
+              </span>
+            </button>
+          </>
         )}
       </div>
 

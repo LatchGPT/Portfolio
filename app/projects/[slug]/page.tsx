@@ -109,7 +109,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             </p>
           </div>
         </div>
-        <WebPreviewFrame project={project} heightClass="h-[480px] sm:h-[560px]" defaultMode="live" />
+        <WebPreviewFrame project={project} heightClass="h-[480px] sm:h-[560px]" defaultZoom={0.8} />
       </section>
 
       {/* Overview & Tech stack */}

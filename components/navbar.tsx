@@ -21,6 +21,56 @@ export function Navbar() {
     { label: 'Resume', href: '/resume', id: 'resume', isResume: true },
   ];
 
+  // Reset scroll to top (Hero section, above About me) on initial page load / refresh
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    if (pathname === '/' || pathname === '') {
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+
+      const resetScroll = () => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      };
+
+      resetScroll();
+      const raf1 = requestAnimationFrame(resetScroll);
+      const raf2 = requestAnimationFrame(() => requestAnimationFrame(resetScroll));
+      const t1 = setTimeout(resetScroll, 30);
+      const t2 = setTimeout(resetScroll, 120);
+      const t3 = setTimeout(resetScroll, 300);
+
+      return () => {
+        cancelAnimationFrame(raf1);
+        cancelAnimationFrame(raf2);
+        clearTimeout(t1);
+        clearTimeout(t2);
+        clearTimeout(t3);
+      };
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handleBeforeUnload = () => {
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+      }
+      if (window.location.hash && (window.location.pathname === '/' || window.location.pathname === '')) {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, []);
+
   // Active section scroll spy
   useEffect(() => {
     if (pathname === '/resume') {

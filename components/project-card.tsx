@@ -19,7 +19,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <span className="font-mono text-xs text-sky-600 dark:text-sky-400 font-semibold tracking-wider">
               PROJECT 0{index + 1}
             </span>
-            <span className="font-mono text-xs text-neutral-500 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800 px-2 py-0.5 rounded-md bg-neutral-50 dark:bg-neutral-800/60">
+            <span className="font-mono text-xs text-neutral-500 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800 px-2.5 py-0.5 rounded-md bg-neutral-50 dark:bg-neutral-800/60">
               {project.category}
             </span>
           </div>
@@ -38,9 +38,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </p>
         </div>
 
-        {/* Web Preview Frame with Live Site iFrame & Interactive Mockup */}
+        {/* Interactive Web Application Preview (Live Deployment Only, No Mockup) */}
         <div className="px-6 pb-2">
-          <WebPreviewFrame project={project} heightClass="h-[270px]" defaultMode="live" />
+          <WebPreviewFrame
+            project={project}
+            heightClass="h-[280px]"
+            defaultZoom={0.6}
+          />
         </div>
 
         {/* Tech Badges */}
@@ -57,7 +61,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       </div>
 
       {/* Footer Actions */}
-      <div className="px-6 py-4 bg-neutral-50/50 dark:bg-neutral-900/80 border-t border-neutral-200 dark:border-neutral-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="px-6 sm:px-8 py-4 bg-neutral-50/60 dark:bg-neutral-900/80 border-t border-neutral-200 dark:border-neutral-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <Link
           href={`/projects/${project.slug}`}
           className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-neutral-900 dark:text-neutral-100 hover:text-sky-600 dark:hover:text-sky-400 transition-colors group"
