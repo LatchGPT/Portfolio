@@ -78,8 +78,8 @@ export const projectsData: Project[] = [
       'Constructed MongoDB aggregation pipelines for instant computation of total rendered hours, undertime, and overtime.',
       'Standardized print stylesheets for exact physical layout reproduction conforming to standard government/corporate DTR forms.'
     ],
-    notes: 'The application is deployed on Cloudflare Workers at https://dtrnilatch.latchcrisford213.workers.dev/.',
+    notes: 'The application is deployed on Vercel at https://dtrnilatch.vercel.app/.',
     githubUrl: 'https://github.com/DoubleCarry/DTRproj',
-    liveUrl: 'https://dtrnilatch.latchcrisford213.workers.dev/'
+    liveUrl: 'https://dtrnilatch.vercel.app/'
   }
 ];

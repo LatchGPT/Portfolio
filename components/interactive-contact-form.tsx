@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Mail, Copy, Check, ExternalLink } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Copy, Check, ExternalLink } from 'lucide-react';
 import { personalInfo } from '@/data/personal';
 
 export function InteractiveContactForm() {
@@ -36,20 +36,34 @@ export function InteractiveContactForm() {
     setStatusMessage('');
 
     try {
-      const res = await fetch('/api/contact', {
+      const accessKey =
+        process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '1a45fce7-c9e9-4e4d-b496-dc0e3c474fbd';
+
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          replyto: formData.email.trim(),
+          subject: `[Portfolio] ${formData.subject || 'Inquiry'} - from ${formData.name.trim()}`,
+          message: formData.message.trim(),
+          from_name: `${formData.name.trim()} (via Portfolio Contact Form)`
+        })
       });
 
       const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to submit inquiry.');
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || 'Failed to submit inquiry.');
       }
 
       setStatus('success');
-      setStatusMessage(data.message || 'Thank you! Your message has been sent to Latch.');
+      setStatusMessage(`Thank you, ${formData.name.trim()}! Your message has been transmitted directly to Latch's inbox.`);
     } catch (err: unknown) {
       console.error('Submission error:', err);
       setStatus('error');
