@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { ThemeToggle } from './theme-toggle';
-import { Menu, X, FileText, Terminal } from 'lucide-react';
+import { Menu, X, FileText, Gamepad2 } from 'lucide-react';
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -134,9 +134,9 @@ export function Navbar() {
     }
   };
 
-  const handleOpenCli = () => {
+  const handleOpenArcade = () => {
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('toggle-cli'));
+      window.dispatchEvent(new CustomEvent('toggle-arcade'));
       setMobileMenuOpen(false);
     }
   };
@@ -196,14 +196,13 @@ export function Navbar() {
 
           <button
             type="button"
-            onClick={handleOpenCli}
-            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 transition-colors ml-1"
-            title="Open Interactive Terminal (or press `)"
+            onClick={handleOpenArcade}
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 hover:bg-amber-100 dark:hover:bg-amber-900/80 border border-amber-300 dark:border-amber-800 transition-all shadow-2xs hover:shadow-amber-500/10 active:scale-95 ml-1"
+            title="Play Arcade Games"
           >
-            <Terminal className="w-3.5 h-3.5 text-emerald-500" />
-            <span>CLI</span>
+            <Gamepad2 className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
+            <span>Play</span>
           </button>
-
           <ThemeToggle />
         </nav>
 
@@ -211,11 +210,11 @@ export function Navbar() {
         <div className="flex md:hidden items-center gap-2">
           <button
             type="button"
-            onClick={handleOpenCli}
-            className="p-2 rounded-lg text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
-            title="Open CLI"
+            onClick={handleOpenArcade}
+            className="p-2 rounded-lg text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/60"
+            title="Play Arcade Games"
           >
-            <Terminal className="w-5 h-5 text-emerald-500" />
+            <Gamepad2 className="w-5 h-5 text-amber-500" />
           </button>
           <ThemeToggle />
           <button
@@ -275,11 +274,11 @@ export function Navbar() {
 
           <button
             type="button"
-            onClick={handleOpenCli}
-            className="w-full text-left py-2 px-3 rounded-lg text-sm font-mono font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 flex items-center gap-2 mt-2"
+            onClick={handleOpenArcade}
+            className="w-full text-left py-2.5 px-3 rounded-lg text-sm font-mono font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 flex items-center gap-2 mt-2 border border-amber-200 dark:border-amber-800/80"
           >
-            <Terminal className="w-4 h-4" />
-            <span>Open Developer Terminal (CLI)</span>
+            <Gamepad2 className="w-4 h-4 text-amber-500" />
+            <span>Play</span>
           </button>
         </div>
       )}

@@ -5,6 +5,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { AskLatchChat } from '@/components/ask-latch-chat';
 import { DeveloperCli } from '@/components/developer-cli';
+import { ArcadeModal } from '@/components/arcade/arcade-modal';
 import { personalInfo } from '@/data/personal';
 
 export const metadata: Metadata = {
@@ -54,6 +55,7 @@ export default function RootLayout({
           <Footer />
           <AskLatchChat />
           <DeveloperCli />
+          <ArcadeModal />
         </ThemeProvider>
       </body>
     </html>

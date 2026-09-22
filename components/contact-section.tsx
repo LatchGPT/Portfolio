@@ -107,7 +107,7 @@ export function ContactSection() {
               Need an instant answer?
             </p>
             <p className="leading-relaxed">
-              You can also chat with <strong>Talk to Latch AI</strong> (floating button at the bottom right) or open the <strong>Developer CLI</strong> (<code className="font-mono text-sky-700 dark:text-sky-300">`</code> or <code className="font-mono text-sky-700 dark:text-sky-300">~</code> key) for immediate background information.
+              You can chat with <strong>Talk to Latch AI</strong> (floating button at bottom right), play retro mini-games via the <strong>Play</strong> button in the navbar, or hit <code className="font-mono text-sky-700 dark:text-sky-300">`</code> for CLI mode.
             </p>
           </div>
         </div>
